@@ -10,30 +10,30 @@ public class MethodsArrays {
 
     int sum(int array[]) {
 
-        int sumInt = 0;
+        int sum = array[0];
 
-        for (int i = 0; i < array.length; i++) {
+        for (int item:array) {
 
-            sumInt += array[i];
+            sum += item;
 
         }
 
-        System.out.print(" sum(int array[]): " + sumInt + ", ");
-        return sumInt;
+        System.out.print(" sum(int array[]): " + sum + ", ");
+        return sum;
     }
 
     double sum(double array[]) {
 
 
-        double sumDouble = 0.0;
+        double sum = array[0];
 
-        for (int i = 0; i < array.length; i++) {
+        for (double item: array) {
 
-            sumDouble += array[i];
+            sum +=item;
         }
-        System.out.print(" sum(double[]): " + sumDouble);
+        System.out.print(" sum(double[]): " + sum);
 
-        return sumDouble;
+        return sum;
     }
 
 
