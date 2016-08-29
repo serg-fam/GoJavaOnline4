@@ -40,134 +40,129 @@ public class MethodsArrays {
     int min(int array[]) {
 
 
-        int minInt = 0;
+        int min = array[0];
 
-        for (int i = 0; i < array.length; i++) {
+        for (int item : array) {
 
-            minInt = Math.min(array[i], minInt);
 
-            if (array[i] == minInt) ;// minInt = array[i];
+            if (item < min) min = item;
 
         }
 
-        System.out.print("min(int array[]): " + minInt + ", ");
+        System.out.print("min(int array[]): " + min + ", ");
 
-        return minInt;
+        return min;
 
     }
 
     double min(double array[]) {
 
-        double minDouble = 0.0;
+        double min = array[0];
 
-        for (int i = 0; i < array.length; i++) {
+        for (double item : array) {
 
-            minDouble = Math.min(array[i], minDouble);
-
-            if (array[i] == minDouble) ; // minDouble = array[i];
+            if (item < min) min = item;
         }
 
-        System.out.print("min(double[]): " + minDouble);
+        System.out.print("min(double[]): " + min);
 
-        return minDouble;
+        return min;
 
     }
 
     int max(int array[]) {
 
-        int maxInt = 0;
+        int max = array[0];
 
-        for (int i = 0; i < array.length; i++) {
+        for (int item : array) {
 
-            maxInt = Math.max(array[i], maxInt);
 
-            if (array[i] == maxInt) ;// maxInt = array[i];
+            if (item > max) max = item;
 
         }
-        System.out.print("max(int array[]): " + maxInt + ", ");
-        return maxInt;
+        System.out.print("max(int array[]): " + max + ", ");
+        return max;
     }
 
     double max(double array[]) {
 
-        double maxDouble = 0.0;
+        double max = array[0];
 
-        for (int i = 0; i < array.length; i++) {
+        for (double item : array) {
 
-            maxDouble = Math.max(array[i], maxDouble);
-
-            if (array[i] == maxDouble) ;// maxDouble = array[i];
+            if (item > max) max = item;
         }
 
-        System.out.print("max(double[]): " + maxDouble);
-        return maxDouble;
+        System.out.print("max(double[]): " + max);
+        return max;
 
     }
 
     int maxPositive(int array[]) {
 
-        int maxPos = 0;
+        int maxPositive = array[0];
 
-        for (int i = 0; i < array.length; i++) {
-            maxPos = Math.max(array[i], maxPos);
+        for (int item : array) {
+            maxPositive = Math.max(item, maxPositive);
 
 
-            if (array[i] > maxPos) ;
+            if (item > maxPositive) maxPositive = item;
 
         }
-        System.out.println("maxPositive(int array[]): " + maxPos + ", ");
-        return maxPos;
+        System.out.println("maxPositive(int array[]): " + maxPositive + ", ");
+        return maxPositive;
 
     }
 
     double maxPositive(double array[]) {
-        double maxPos = 0.0;
+        double maxPositive = array[0];
 
-        for (int i = 0; i < array.length; i++) {
+        for (double item : array) {
 
-            maxPos = Math.max(array[i], maxPos);
+            maxPositive = Math.max(item, maxPositive);
 
-            if (array[i] > maxPos) ;
+            if (item > maxPositive) maxPositive = item;
         }
-        System.out.println("maxPositive(double array[]): " + maxPos);
-        return maxPos;
+        System.out.println("maxPositive(double array[]): " + maxPositive);
+        return maxPositive;
     }
 
     int multiplication(int array[]) {
 
-        int multInt = 1;
+        int multiplication = 1;
 
-        for (int i = 0; i < array.length; i++) {
+        for (int item : array) {
 
-            multInt *= array[i];
+            multiplication *= item;
 
 
         }
-        System.out.println(" multiplication  (int array[]): " + multInt + ", ");
-        return multInt;
+        System.out.println(" multiplication  (int array[]): " + multiplication + ", ");
+        return multiplication;
     }
 
     double multiplication(double array[]) {
 
-        double multDouble = 1;
+        double multiplication = 1;
 
-        for (int i = 0; i < array.length; i++) {
+        for (double item : array) {
 
-            multDouble *= array[i];
+            multiplication *= item;
 
         }
-        System.out.println("multiplication (double[]): " + multDouble);
-        return multDouble;
+        System.out.println("multiplication (double[]): " + multiplication);
+        return multiplication;
     }
 
     void modulus(int array[]) {
 
-        int modulFirst = 0;
-        int modulLast = 0;
-        for (int i = 0; i < array.length; i++) {
+        int modulFirst = array[0];
+        int modulLast = array[array.length - 1];
 
-            modulFirst = array[0] % 10;
-            modulLast = array[array.length - 1] % 10;
+        for (int item : array) {
+
+            modulFirst = modulFirst % 10;
+            modulLast = modulLast % 10;
 
 
         }
@@ -177,13 +172,13 @@ public class MethodsArrays {
 
     void modulus(double array[]) {
 
-        double modulFirst = 0.0;
-        double modulLast = 0.0;
+        double modulFirst = array[0];
+        double modulLast = array[array.length - 1];
 
-        for (int i = 0; i < array.length; i++) {
+        for (double item : array) {
 
-            modulFirst = array[0] % 10;
-            modulLast = array[array.length - 1] % 10;
+            modulFirst = modulFirst % 10;
+            modulLast = modulLast % 10;
 
         }
         System.out.println("modulus(double[]): " + modulFirst + "  " + modulLast);
@@ -192,7 +187,7 @@ public class MethodsArrays {
 
     int secondLargest(int array[]) {
 
-        int secondIntL = 0;
+        int secondLargest = array[0];
 
         for (int i = array.length - 1; i >= 0; i--) {
 
@@ -208,16 +203,16 @@ public class MethodsArrays {
             }
             System.out.print(array[i] + " ");
 
-            secondIntL = array[8];
+            secondLargest = array[8];
         }
         System.out.println();
-        System.out.print("secondLargest(int array[]): " + secondIntL + ", ");
-        return secondIntL;
+        System.out.print("secondLargest(int array[]): " + secondLargest + ", ");
+        return secondLargest;
     }
 
     double secondLargest(double array[]) {
 
-        double secondIntL = 0.0;
+        double secondLargest = array[0];
 
         for (int i = array.length - 1; i >= 0; i--) {
 
@@ -233,11 +228,11 @@ public class MethodsArrays {
             }
             System.out.print(array[i] + " ");
 
-            secondIntL = array[8];
+            secondLargest = array[8];
         }
         System.out.println();
-        System.out.print("secondLargest(double[]): " + secondIntL + ".");
-        return secondIntL;
+        System.out.print("secondLargest(double[]): " + secondLargest + ".");
+        return secondLargest;
     }
 
 
