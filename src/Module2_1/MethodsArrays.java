@@ -12,7 +12,7 @@ public class MethodsArrays {
 
         int sum = array[0];
 
-        for (int item:array) {
+        for (int item : array) {
 
             sum += item;
 
@@ -27,9 +27,9 @@ public class MethodsArrays {
 
         double sum = array[0];
 
-        for (double item: array) {
+        for (double item : array) {
 
-            sum +=item;
+            sum += item;
         }
         System.out.print(" sum(double[]): " + sum);
 
@@ -154,35 +154,30 @@ public class MethodsArrays {
         return multiplication;
     }
 
-    void modulus(int array[]) {
+    int modulus(int array[]) {
 
+        int modulus;
         int modulFirst = array[0];
         int modulLast = array[array.length - 1];
 
-        for (int item : array) {
 
-            modulFirst = modulFirst % 10;
-            modulLast = modulLast % 10;
+        modulus = modulFirst % modulLast;
 
-
-        }
-        System.out.println("modulus(int array[]): " + modulFirst + "  " + modulLast + ", ");
-
+        System.out.println("modulus(int array[]): " + modulus + ", ");
+        return modulus;
     }
 
-    void modulus(double array[]) {
+    double modulus(double array[]) {
 
+        double modulus;
         double modulFirst = array[0];
         double modulLast = array[array.length - 1];
 
-        for (double item : array) {
+        modulus = modulFirst % modulLast;
 
-            modulFirst = modulFirst % 10;
-            modulLast = modulLast % 10;
+        System.out.println("modulus(double[]): " + modulus);
 
-        }
-        System.out.println("modulus(double[]): " + modulFirst + "  " + modulLast);
-
+        return modulus;
     }
 
     int secondLargest(int array[]) {
