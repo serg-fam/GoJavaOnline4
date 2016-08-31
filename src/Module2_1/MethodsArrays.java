@@ -163,7 +163,9 @@ public class MethodsArrays {
 
         modulus = modulFirst % modulLast;
 
-        System.out.println("modulus(int array[]): " + modulus + ", ");
+
+
+        System.out.println("modulus(int array[]): " + modulus + " , ");
         return modulus;
     }
 
