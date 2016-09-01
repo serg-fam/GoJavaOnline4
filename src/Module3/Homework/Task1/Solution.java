@@ -6,7 +6,8 @@ package Module3.Homework.Task1;
 public class Solution {
     public static void main(String[] args) {
 
-        new Walk().walk();
+        Walk walk = new Walk();
+        walk.walk();
         new Fly().fly();
         new Sing().sing();
         new Bird().bird();
