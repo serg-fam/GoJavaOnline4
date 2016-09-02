@@ -136,16 +136,11 @@ class MethodsArrays {
 
         int secondLargest = Integer.MIN_VALUE;
 
+        for (int item : array) {
 
-        for (int i = array.length - 1; i >= 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (array[j] < array[j + 1]) {
-                    int tmp = array[j + 1];
-                    array[j + 1] = array[j];
-                    array[j] = tmp;
-                }
-            }
-            secondLargest = array[1];
+            if (item > secondLargest && item < max(randIntArrays))
+
+                secondLargest = item;
         }
         return secondLargest;
     }
@@ -154,16 +149,13 @@ class MethodsArrays {
 
         double secondLargest = Double.MIN_VALUE;
 
-        for (int i = array.length - 1; i >= 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (array[j] < array[j + 1]) {
-                    double tmp = array[j + 1];
-                    array[j + 1] = array[j];
-                    array[j] = tmp;
-                }
-            }
-            secondLargest = array[1];
+        for (double item : array) {
+
+            if (item > secondLargest && item < max(randDoubleArrays))
+
+                secondLargest = item;
         }
+
         return secondLargest;
     }
 
