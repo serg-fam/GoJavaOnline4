@@ -1,239 +1,212 @@
 package Module2_1;
 
+import java.util.Arrays;
 
 /**
  * Created by Serg-fam on 23.08.2016 on 11:35.
  */
 
-public class MethodsArrays {
+class MethodsArrays {
 
+    private RandIntArray randIntArray = new RandIntArray();
+    private RandDoubleArray randDoubleArray = new RandDoubleArray();
 
-    int sum(int array[]) {
+    private int[] randIntArrays = randIntArray.getIntArray();
+    private double[] randDoubleArrays = randDoubleArray.getDoubleArray();
+
+    private int sum(int[] array) {
 
         int sum = array[0];
-
         for (int item : array) {
-
             sum += item;
-
         }
-
-        System.out.print(" sum(int array[]): " + sum + ", ");
         return sum;
     }
 
-    double sum(double array[]) {
 
-
+    private double sum(double[] array) {
         double sum = array[0];
-
         for (double item : array) {
-
             sum += item;
         }
-        System.out.print(" sum(double[]): " + sum);
-
         return sum;
     }
 
 
-    int min(int array[]) {
-
+    private int min(int[] array) {
 
         int min = array[0];
-
         for (int item : array) {
-
-
             if (item < min) min = item;
-
         }
-
-        System.out.print("min(int array[]): " + min + ", ");
-
         return min;
-
     }
 
-    double min(double array[]) {
+    private double min(double[] array) {
 
         double min = array[0];
-
         for (double item : array) {
-
             if (item < min) min = item;
         }
 
-        System.out.print("min(double[]): " + min);
-
         return min;
-
     }
 
-    int max(int array[]) {
+    private int max(int[] array) {
 
         int max = array[0];
-
         for (int item : array) {
-
-
             if (item > max) max = item;
-
         }
-        System.out.print("max(int array[]): " + max + ", ");
         return max;
     }
 
-    double max(double array[]) {
+    private double max(double[] array) {
 
         double max = array[0];
 
         for (double item : array) {
-
             if (item > max) max = item;
         }
-
-        System.out.print("max(double[]): " + max);
         return max;
-
     }
 
-    int maxPositive(int array[]) {
+    private int maxPositive(int[] array) {
 
         int maxPositive = array[0];
 
         for (int item : array) {
             maxPositive = Math.max(item, maxPositive);
-
-
             if (item > maxPositive) maxPositive = item;
-
         }
-        System.out.println("maxPositive(int array[]): " + maxPositive + ", ");
         return maxPositive;
-
     }
 
-    double maxPositive(double array[]) {
+    private double maxPositive(double[] array) {
         double maxPositive = array[0];
 
         for (double item : array) {
-
             maxPositive = Math.max(item, maxPositive);
-
             if (item > maxPositive) maxPositive = item;
         }
-        System.out.println("maxPositive(double array[]): " + maxPositive);
         return maxPositive;
     }
 
-    int multiplication(int array[]) {
+    private int multiplication(int[] array) {
 
         int multiplication = 1;
 
         for (int item : array) {
-
             multiplication *= item;
-
-
         }
-        System.out.println(" multiplication  (int array[]): " + multiplication + ", ");
         return multiplication;
     }
 
-    double multiplication(double array[]) {
+    private double multiplication(double[] array) {
 
         double multiplication = 1;
 
         for (double item : array) {
-
             multiplication *= item;
-
         }
-        System.out.println("multiplication (double[]): " + multiplication);
         return multiplication;
     }
 
-    int modulus(int array[]) {
+    private int modulus(int[] array) {
 
         int modulus;
         int modulFirst = array[0];
         int modulLast = array[array.length - 1];
 
-
         modulus = modulFirst % modulLast;
-
-
-
-        System.out.println("modulus(int array[]): " + modulus + " , ");
         return modulus;
     }
 
-    double modulus(double array[]) {
+    private double modulus(double[] array) {
 
         double modulus;
         double modulFirst = array[0];
         double modulLast = array[array.length - 1];
 
         modulus = modulFirst % modulLast;
-
-        System.out.println("modulus(double[]): " + modulus);
-
         return modulus;
     }
 
-    int secondLargest(int array[]) {
+    private int secondLargest(int[] array) {
 
-        int secondLargest = array[0];
+        int secondLargest = Integer.MIN_VALUE;
+
 
         for (int i = array.length - 1; i >= 0; i--) {
-
             for (int j = 0; j < i; j++) {
-
-                if (array[j] > array[j + 1]) {
-
-                    int tmp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = tmp;
+                if (array[j] < array[j + 1]) {
+                    int tmp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = tmp;
                 }
-
             }
-            System.out.print(array[i] + " ");
-
-            secondLargest = array[8];
+            secondLargest = array[1];
         }
-        System.out.println();
-        System.out.print("secondLargest(int array[]): " + secondLargest + ", ");
         return secondLargest;
     }
 
-    double secondLargest(double array[]) {
+    private double secondLargest(double[] array) {
 
-        double secondLargest = array[0];
+        double secondLargest = Double.MIN_VALUE;
 
         for (int i = array.length - 1; i >= 0; i--) {
-
             for (int j = 0; j < i; j++) {
-
-                if (array[j] > array[j + 1]) {
-
-                    double tmp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = tmp;
+                if (array[j] < array[j + 1]) {
+                    double tmp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = tmp;
                 }
-
             }
-            System.out.print(array[i] + " ");
-
-            secondLargest = array[8];
+            secondLargest = array[1];
         }
-        System.out.println();
-        System.out.print("secondLargest(double[]): " + secondLargest + ".");
         return secondLargest;
     }
 
+    private int sumInt = sum(randIntArrays);
+    private double sumDouble = sum(randDoubleArrays);
+    private int minInt = min(randIntArrays);
+    private double minDouble = min(randDoubleArrays);
+    private int maxInt = max(randIntArrays);
+    private double maxDouble = max(randDoubleArrays);
+    private int maxIntPositive = maxPositive(randIntArrays);
+    private double maxDoublePositive = maxPositive(randDoubleArrays);
+    private int multiplicationInt = multiplication(randIntArrays);
+    private double multiplicationDouble = multiplication(randDoubleArrays);
+    private int modulusInt = modulus(randIntArrays);
+    private double modulusDouble = modulus(randDoubleArrays);
+    private int secondLargestInt = secondLargest(randIntArrays);
+    private double secondLargestDouble = secondLargest(randDoubleArrays);
 
+    @Override
+    public String toString() {
+        return "Output:" + '\n' +
+                " randIntArrays=" + Arrays.toString(randIntArrays) + '\n' +
+                " randDoubleArrays=" + Arrays.toString(randDoubleArrays) + '\n' +
+                " sumInt=" + sumInt + '\n' +
+                " sumDouble=" + sumDouble + '\n' +
+                " minInt=" + minInt + '\n' +
+                " minDouble=" + minDouble + '\n' +
+                " maxInt=" + maxInt + '\n' +
+                " maxDouble=" + maxDouble + '\n' +
+                " maxIntPositive=" + maxIntPositive + '\n' +
+                " maxDoublePositive=" + maxDoublePositive + '\n' +
+                " multiplicationInt=" + multiplicationInt + '\n' +
+                " multiplicationDouble=" + multiplicationDouble + '\n' +
+                " modulusInt=" + modulusInt + '\n' +
+                " modulusDouble=" + modulusDouble + '\n' +
+                " secondLargestInt=" + secondLargestInt + '\n' +
+                " secondLargestDouble=" + secondLargestDouble +
+                '.';
+    }
 }
+
+
+
 
 
 
