@@ -138,7 +138,7 @@ class MethodsArrays {
 
         for (int item : array) {
 
-            if (item > secondLargest && item < max(randIntArrays))
+            if (item > secondLargest && item < max(array))
 
                 secondLargest = item;
         }
@@ -151,7 +151,7 @@ class MethodsArrays {
 
         for (double item : array) {
 
-            if (item > secondLargest && item < max(randDoubleArrays))
+            if (item > secondLargest && item < max(array))
 
                 secondLargest = item;
         }
