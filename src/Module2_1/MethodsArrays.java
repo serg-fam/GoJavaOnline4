@@ -15,7 +15,6 @@ class MethodsArrays {
     private double[] randDoubleArrays = randDoubleArray.getDoubleArray();
 
     private int sum(int[] array) {
-
         int sum = array[0];
         for (int item : array) {
             sum += item;
@@ -34,60 +33,63 @@ class MethodsArrays {
 
 
     private int min(int[] array) {
-
         int min = array[0];
         for (int item : array) {
-            if (item < min) min = item;
+            if (item < min) {
+                min = item;
+            }
         }
         return min;
     }
 
     private double min(double[] array) {
-
         double min = array[0];
         for (double item : array) {
-            if (item < min) min = item;
+            if (item < min) {
+                min = item;
+            }
         }
-
         return min;
     }
 
     private int max(int[] array) {
-
         int max = array[0];
         for (int item : array) {
-            if (item > max) max = item;
+            if (item > max) {
+                max = item;
+            }
         }
         return max;
     }
 
     private double max(double[] array) {
-
         double max = array[0];
-
         for (double item : array) {
-            if (item > max) max = item;
+            if (item > max) {
+                max = item;
+            }
         }
         return max;
     }
 
     private int maxPositive(int[] array) {
-
         int maxPositive = array[0];
-
         for (int item : array) {
             maxPositive = Math.max(item, maxPositive);
-            if (item > maxPositive) maxPositive = item;
+            if (item > maxPositive) {
+                maxPositive = item;
+            }
         }
         return maxPositive;
     }
 
     private double maxPositive(double[] array) {
         double maxPositive = array[0];
-
         for (double item : array) {
             maxPositive = Math.max(item, maxPositive);
-            if (item > maxPositive) maxPositive = item;
+            if (item > maxPositive) {
+                maxPositive = item;
+            }
         }
         return maxPositive;
     }
@@ -113,34 +115,20 @@ class MethodsArrays {
     }
 
     private int modulus(int[] array) {
-
-        int modulus;
-        int modulFirst = array[0];
-        int modulLast = array[array.length - 1];
-
-        modulus = modulFirst % modulLast;
-        return modulus;
+        return array[0] % array[array.length - 1];
     }
 
     private double modulus(double[] array) {
-
-        double modulus;
-        double modulFirst = array[0];
-        double modulLast = array[array.length - 1];
-
-        modulus = modulFirst % modulLast;
-        return modulus;
+        return array[0] % array[array.length - 1];
     }
 
     private int secondLargest(int[] array) {
-
+        int max = max(array);
         int secondLargest = Integer.MIN_VALUE;
-
         for (int item : array) {
-
-            if (item > secondLargest && item < max(array))
-
+            if (item > secondLargest && item < max) {
                 secondLargest = item;
+            }
         }
         return secondLargest;
     }
