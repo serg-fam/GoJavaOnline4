@@ -52,8 +52,8 @@ public class Bank {
 
         double withdrawBalance = 0;
 
-        if (balance > (withdrawal + 0.5)) {
-withdrawBalance = (balance - (withdrawal + 0.5)); //money from account and takes commision 5% of the transaction
+        if (balance > (withdrawal + (withdrawal * .05))) {
+            withdrawBalance = (balance - (withdrawal + (withdrawal * 0.05))); //money from account and takes commision 5% of the transaction
             System.out.println("OK " + withdrawal + " withdrawBalance: " + withdrawBalance);
         } else {
             System.out.println("NO money!");
