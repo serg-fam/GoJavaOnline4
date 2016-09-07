@@ -26,25 +26,23 @@ class User {
     }
 
     void withdraw(int summ) {
-
+        final double commission;
         if (summ < 1000) {
-            balance = (int) (balance - (summ + (summ * 0.005)));
+            commission = summ * 0.1;
         } else {
-            balance = (int) (balance - (summ + (summ * 0.01)));
+            commission = summ * 0.05;
         }
+        balance -=summ + commission;
 
         System.out.println("Balance - Summ " + summ + " = " + balance);
     }
 
     int companyNameLength() {
-
         return (companyName.length());
     }
 
     void monthIncreaser(int addMonth) {
-
         int monthIncreaser = monthsOfEmployment + addMonth;
-
         System.out.println("MonthsOfEmployment + addMonth " + addMonth + " = " + monthIncreaser);
     }
 
