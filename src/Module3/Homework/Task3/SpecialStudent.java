@@ -7,25 +7,20 @@ import java.util.Arrays;
  */
 class SpecialStudent extends CollegeStudent {
 
-
     private long secretKey;
     private String email;
 
-
     SpecialStudent(String firstName, String lastName, int group) {
         super(firstName, lastName, group);
-
     }
 
     SpecialStudent(String firstName, String lastName, int group, String collegeName, int rating, long id) {
         super(firstName, lastName, group, collegeName, rating, id);
-
     }
 
     SpecialStudent(String firstName, String lastName, int group, String collegeName, int rating, long id, long secretKey) {
         super(firstName, lastName, group, collegeName, rating, id);
         this.secretKey = secretKey;
-
     }
 
     public long getSecretKey() {

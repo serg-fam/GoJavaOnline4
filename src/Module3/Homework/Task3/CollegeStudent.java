@@ -7,23 +7,17 @@ import java.util.Arrays;
  */
 class CollegeStudent extends Student {
 
-
     private String collegeName;
-
-
     private int rating;
     private long id;
 
     CollegeStudent(String firstName, String lastName, int group) {
-
         super(firstName, lastName, group);
     }
 
     CollegeStudent(String lastName, Course[] coursesTaken) {
-
         super(lastName, coursesTaken);
     }
-
 
     CollegeStudent(String firstName, String lastName, int group, String collegeName, int rating, long id) {
         super(firstName, lastName, group);
@@ -56,7 +50,6 @@ class CollegeStudent extends Student {
         this.id = id;
     }
 
-
     @Override
     public String toString() {
         return "CollegeStudent{" +
@@ -70,5 +63,4 @@ class CollegeStudent extends Student {
                 ", id=" + id +
                 '}';
     }
-
 }
