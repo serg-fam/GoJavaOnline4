@@ -17,5 +17,8 @@ public class Main {
 
         User useChina1 = new User();
         User useChina2 = new User();
+
+        System.out.println(Currency.EUR);
+        System.out.println(Currency.EUR.getNumber());
     }
 }
