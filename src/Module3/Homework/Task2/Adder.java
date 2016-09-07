@@ -8,13 +8,11 @@ class Adder extends Arithmetic {
     boolean check(Integer a, Integer b) {
 
         if (a >= b) {
-
-            System.out.println("(a >= b) True");
-
+            System.out.println("a>=b, return true");
+            return true;
         } else {
-            System.out.println("(a >= b) False");
+            System.out.println("a < b, return false");
+            return false;
         }
-
-        return true;
     }
 }

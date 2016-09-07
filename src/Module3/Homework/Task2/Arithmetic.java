@@ -6,11 +6,6 @@ package Module3.Homework.Task2;
 class Arithmetic {
 
     Integer add(Integer a, Integer b) {
-
-        int add = (a + b);
-
-        System.out.println("Sum " + a + " + " + b + " = " + add);
-
-        return add;
+        return a + b;
     }
 }

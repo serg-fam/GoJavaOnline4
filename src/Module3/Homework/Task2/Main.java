@@ -1,8 +1,9 @@
 package Module3.Homework.Task2;
 
-import java.io.BufferedReader;
+//import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
+//import java.io.InputStreamReader;
 
 /**
  * Created by Serg-fam on 01.09.2016 on 11:20.
@@ -10,9 +11,13 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Integer a, b;
+        Integer a = 7;
+        Integer b = 5;
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+
+      /*  BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Integer a:");
 
@@ -20,7 +25,7 @@ public class Main {
 
         System.out.println("Integer b:");
 
-        b = Integer.parseInt(reader.readLine());
+        b = Integer.parseInt(reader.readLine());*/
 
 
         Arithmetic arithmetic = new Arithmetic();
