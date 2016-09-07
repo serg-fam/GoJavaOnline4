@@ -10,4 +10,19 @@ class Bird {
         System.out.println("I am Bird");
 
     }
+
+    void walk() {
+
+        System.out.println("I am walking");
+    }
+
+    void fly() {
+
+        System.out.println("I am flying");
+    }
+    void sing() {
+
+        System.out.println("I am singing");
+    }
+
 }

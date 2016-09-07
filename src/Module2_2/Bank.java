@@ -22,7 +22,6 @@ public class Bank {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("ownerNames:{\"Jane\", \"Ann\", \"Jack\", \"Oww\", \"Lane\"}: ");
-
         String names = reader.readLine();
 
         for (int i = 0; i < ownerNames.length; i++) {
@@ -30,19 +29,14 @@ public class Bank {
             if (names.equals(ownerNames[i])) {
 
                 name = names;
-
                 indexName = i;
 
                 System.out.println(" ownerNames: " + name);
-
                 System.out.println("Index: " + indexName);
 
-
                 for (int j = 0; j < balances.length; j++) {
-
                     if (i == j) {
                         indexBalance = balances[j];
-
                         System.out.println("balance " + name + " : " + indexBalance);
                     }
                 }
@@ -50,13 +44,8 @@ public class Bank {
         }
 
         System.out.println("withdrawal:");
-
-
         double withdrawal = Double.parseDouble(reader.readLine());
-
         withdrawBalance(indexBalance, withdrawal);
-
-
     }
 
     static double withdrawBalance(double balance, double withdrawal) {
@@ -64,16 +53,11 @@ public class Bank {
         double withdrawBalance = 0;
 
         if (balance > (withdrawal + 0.5)) {
-
-            withdrawBalance = (balance - (withdrawal + 0.5));
-
+withdrawBalance = (balance - (withdrawal + 0.5)); //money from account and takes commision 5% of the transaction
             System.out.println("OK " + withdrawal + " withdrawBalance: " + withdrawBalance);
-
         } else {
-
             System.out.println("NO money!");
         }
-
         return withdrawBalance;
     }
 }

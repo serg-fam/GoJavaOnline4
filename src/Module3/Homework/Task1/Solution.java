@@ -6,10 +6,11 @@ package Module3.Homework.Task1;
 public class Solution {
     public static void main(String[] args) {
 
-        Walk walk = new Walk();
-        walk.walk();
-        new Fly().fly();
-        new Sing().sing();
-        new Bird().bird();
+        Bird bird = new Bird();
+
+        bird.walk();
+        bird.fly();
+        bird.sing();
+        bird.bird();
     }
 }
