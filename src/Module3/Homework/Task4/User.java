@@ -22,22 +22,18 @@ class User {
     }
 
     void paySalary() {
-
         balance += salary;
     }
 
-    double withdraw(int summ) {
+    void withdraw(int summ) {
 
         if (summ < 1000) {
-
-            balance = (int) (balance - (summ + 0.5));
+            balance = (int) (balance - (summ + (summ * 0.005)));
         } else {
-
-            balance = (balance - (summ + 1));
+            balance = (int) (balance - (summ + (summ * 0.01)));
         }
 
-        return balance;
-
+        System.out.println("Balance - Summ " + summ + " = " + balance);
     }
 
     int companyNameLength() {
@@ -45,11 +41,11 @@ class User {
         return (companyName.length());
     }
 
-    int monthIncreaser(int addMonth) {
+    void monthIncreaser(int addMonth) {
 
+        int monthIncreaser = monthsOfEmployment + addMonth;
 
-        return monthsOfEmployment + addMonth;
-
+        System.out.println("MonthsOfEmployment + addMonth " + addMonth + " = " + monthIncreaser);
     }
 
     public String getName() {
@@ -111,6 +107,4 @@ class User {
                 ", currency='" + currency + '\'' +
                 '}';
     }
-
-
 }
