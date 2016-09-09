@@ -32,8 +32,8 @@ public class USBank extends Bank {
     @Override
     int getMonthlyRate() {
         int rate;
-        if (getCurrency() == Currency.USD) rate = 10;
-        else rate = 15;
+        if (getCurrency() == Currency.USD) rate = 1;
+        else rate = 2;
         return rate;
     }
 

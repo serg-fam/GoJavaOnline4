@@ -32,7 +32,7 @@ public class EUBank extends Bank {
     int getMonthlyRate() {
         int rate;
         if (getCurrency() == Currency.USD) rate = 0;
-        else rate = 10;
+        else rate = 1;
         return rate;
     }
 

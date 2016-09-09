@@ -31,7 +31,7 @@ public class ChinaBank extends Bank {
     @Override
     int getMonthlyRate() {
         int rate;
-        if (getCurrency() == Currency.USD) rate = 10;
+        if (getCurrency() == Currency.USD) rate = 1;
         else rate = 0;
         return rate;
     }
