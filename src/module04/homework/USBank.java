@@ -5,6 +5,7 @@ package module04.homework;
  */
 public class USBank extends Bank {
 
+
     public USBank() {
     }
 
@@ -24,20 +25,32 @@ public class USBank extends Bank {
     int getLimitOfFunding() {
         int limit;
         if (getCurrency() == Currency.EUR) limit = 10000;
-        else limit = -1;
+        else limit = noLimit;
         return limit;
     }
 
     @Override
     int getMonthlyRate() {
-
-        return 0;
+        int rate;
+        if (getCurrency() == Currency.USD) rate = 10;
+        else rate = 15;
+        return rate;
     }
 
     @Override
-    int getCommission() {
-
-        return 0;
+    int getCommission(int amount) {
+        int commission;
+        if (getCurrency() == Currency.USD) {
+            if (amount < 1000) commission = 5;
+            else commission = 7;
+        } else {
+            if (amount < 1000) commission = 6;
+            else commission = 8;
+        }
+        return commission;
     }
 
+
 }
+
+

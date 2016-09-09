@@ -13,6 +13,8 @@ public abstract class Bank {
     private long rating;
     private long totalCapital;
 
+    final static int noLimit = Integer.MAX_VALUE;
+
     public Bank() {
     }
 
@@ -26,7 +28,9 @@ public abstract class Bank {
         this.totalCapital = totalCapital;
     }
 
-    void moneyPaidMonthlyForSalary() {
+    double moneyPaidMonthlyForSalary() {
+
+        return numberOfEmployees + avrSalaryOfEmployee;
 
     }
 
@@ -36,7 +40,7 @@ public abstract class Bank {
 
     abstract int getMonthlyRate();
 
-    abstract int getCommission();
+    abstract int getCommission(int amount);
 
 
     public long getId() {
