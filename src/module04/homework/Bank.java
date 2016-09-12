@@ -15,9 +15,6 @@ public abstract class Bank {
 
     final static int noLimit = Integer.MAX_VALUE;
 
-    public Bank() {
-    }
-
     public Bank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         this.id = id;
         this.bankCountry = bankCountry;
@@ -31,7 +28,6 @@ public abstract class Bank {
     double moneyPaidMonthlyForSalary() {
 
         return numberOfEmployees + avrSalaryOfEmployee;
-
     }
 
     abstract int getLimitOfWithdrawal();
@@ -98,4 +94,5 @@ public abstract class Bank {
     public void setTotalCapital(long totalCapital) {
         this.totalCapital = totalCapital;
     }
+
 }

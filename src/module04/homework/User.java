@@ -5,29 +5,23 @@ package module04.homework;
  */
 public class User {
 
-    private Bank bank;
     private long id;
-    private String bankCountry;
-    private Currency currency;
-    private int numberOfEmployees;
-    private double avrSalaryOfEmployee;
-    private long rating;
-    private long totalCapital;
+    private String name;
+
+
     private double balance;
+    private int monthsOfEmployment;
+    private String companyName;
+    private int salary;
+    private Bank bank;
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
+    public User(long id, String name, double balance, int monthsOfEmployment, String companyName, int salary, Bank bank) {
+        this.id = id;
+        this.name = name;
         this.balance = balance;
-    }
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public void setBank(Bank bank) {
+        this.monthsOfEmployment = monthsOfEmployment;
+        this.companyName = companyName;
+        this.salary = salary;
         this.bank = bank;
     }
 
@@ -39,66 +33,65 @@ public class User {
         this.id = id;
     }
 
-    public String getBankCountry() {
-        return bankCountry;
+    public String getName() {
+        return name;
     }
 
-    public void setBankCountry(String bankCountry) {
-        this.bankCountry = bankCountry;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Currency getCurrency() {
-        return currency;
+    public double getBalance() {
+        return balance;
     }
 
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
-    public int getNumberOfEmployees() {
-        return numberOfEmployees;
+    public int getMonthsOfEmployment() {
+        return monthsOfEmployment;
     }
 
-    public void setNumberOfEmployees(int numberOfEmployees) {
-        this.numberOfEmployees = numberOfEmployees;
+    public void setMonthsOfEmployment(int monthsOfEmployment) {
+        this.monthsOfEmployment = monthsOfEmployment;
     }
 
-    public double getAvrSalaryOfEmployee() {
-        return avrSalaryOfEmployee;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setAvrSalaryOfEmployee(double avrSalaryOfEmployee) {
-        this.avrSalaryOfEmployee = avrSalaryOfEmployee;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public long getRating() {
-        return rating;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setRating(long rating) {
-        this.rating = rating;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
-    public long getTotalCapital() {
-        return totalCapital;
+    public Bank getBank() {
+        return bank;
     }
 
-    public void setTotalCapital(long totalCapital) {
-        this.totalCapital = totalCapital;
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "bank=" + bank +
-                ", id=" + id +
-                ", bankCountry='" + bankCountry + '\'' +
-                ", currency=" + currency +
-                ", numberOfEmployees=" + numberOfEmployees +
-                ", avrSalaryOfEmployee=" + avrSalaryOfEmployee +
-                ", rating=" + rating +
-                ", totalCapital=" + totalCapital +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", balance=" + balance +
+                ", monthsOfEmployment=" + monthsOfEmployment +
+                ", companyName='" + companyName + '\'' +
+                ", salary=" + salary +
+                ", bank=" + bank+
                 '}';
     }
+
 }
