@@ -25,7 +25,7 @@ public class EUBank extends Bank {
         return limit;
     }
 
-     @Override
+    @Override
     int getMonthlyRate() {
         int rate;
         if (getCurrency() == Currency.USD) rate = 0;
@@ -44,5 +44,18 @@ public class EUBank extends Bank {
             else commission = 4;
         }
         return commission;
+    }
+
+    @Override
+    public String toString() {
+        return "EUBank{" +
+                "id=" + getId() +
+                ", bankCountry='" + getBankCountry() + '\'' +
+                ", currency=" + getCurrency() +
+                ", numberOfEmployees=" + getNumberOfEmployees() +
+                ", avrSalaryOfEmployee=" + getAvrSalaryOfEmployee() +
+                ", rating=" + getRating() +
+                ", totalCapital=" + getTotalCapital() +
+                '}';
     }
 }

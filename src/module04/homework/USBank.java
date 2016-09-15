@@ -46,7 +46,18 @@ public class USBank extends Bank {
         return commission;
     }
 
-
+    @Override
+    public String toString() {
+        return "USBank{" +
+                "id=" + getId() +
+                ", bankCountry='" + getBankCountry() + '\'' +
+                ", currency=" + getCurrency() +
+                ", numberOfEmployees=" + getNumberOfEmployees() +
+                ", avrSalaryOfEmployee=" + getAvrSalaryOfEmployee() +
+                ", rating=" + getRating() +
+                ", totalCapital=" + getTotalCapital() +
+                '}';
+    }
 }
 
 
