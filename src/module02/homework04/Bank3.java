@@ -17,7 +17,7 @@ public class Bank3 {
         double withdrawal = 100;
 
         System.out.println(Arrays.toString(balances));
-        final double result = withdraw(ownerName, withdrawal);
+        final double result = fund(ownerName, withdrawal);
         if (result < 0) {
             System.out.println(ownerName + " NO");
         } else {
@@ -26,19 +26,14 @@ public class Bank3 {
         System.out.println(Arrays.toString(balances));
     }
 
-    static double withdraw(String ownerName, double withdrawal) {
+    static double fund(String ownerName, double fundAnmount) {
 
         final int balanceIndex = getBalanceIndexByName(ownerName);
         if (balanceIndex < 0) {
             return -1;
         }
-        final double balance = balances[balanceIndex];
-        final double result = withdrow(balance, withdrawal);
-        if (result < 0) {
-            return -1;
-        }
-        balances[balanceIndex] = result;
-        return result;
+        balances[balanceIndex] = fund(balances[balanceIndex], fundAnmount);
+        return balances[balanceIndex];
     }
 
     private static int getBalanceIndexByName(String ownerName) {
@@ -50,7 +45,7 @@ public class Bank3 {
         return -1;
     }
 
-    private static double withdrow(double balance, double fund) {
+    private static double fund(double balance, double fund) {
         return balance + fund;
     }
 }
