@@ -1,9 +1,11 @@
 package module06.homework;
 
+import java.util.Arrays;
+
 /**
  * Created by Serg-fam on 25.09.2016 on 13:30.
  */
-public class ArraysUtils {
+public final class ArraysUtils {
 
     static int sum(int array[]) {
         int sum = array[0];
@@ -68,22 +70,28 @@ public class ArraysUtils {
     }
 
     static int[] reverse(int[] array) {
-
-        for (int i = 1; i <=array.length; i++) {
-            System.out.print(array[array.length - i] + (i == array.length ? " " : " , "));
+        for (int i = 0; i < array.length / 2; i++) {
+            int index2 = array.length - 1 - i;
+            swap(array, i, index2);
         }
         return array;
     }
 
+    private static void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
 
     static int[] findEvenElements(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 0) {
-                System.out.print(array[i] + (i == array.length ? " " : " , "));
+        int[] result = new int[0];
+        for (int value : array) {
+            if (value % 2 == 0) {
+                result = Arrays.copyOf(result, result.length + 1);
+                result[result.length - 1] = value;
             }
         }
-        return array;
+        return result;
     }
 
 

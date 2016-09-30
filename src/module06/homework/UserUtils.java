@@ -7,69 +7,70 @@ import java.util.Arrays;
  */
 public class UserUtils {
 
-    User[] users;
-
-    public UserUtils(User[] users) {
-        this.users = users;
-    }
-
-    User[] uniqueUsers(User[] users) {
-
-
+    public static User[] uniqueUsers(User[] users) {
+        users = deleteEmptyUsers(users);
+        User[] result = new User[0];
         for (User user : users) {
-
-            if (user.equals(users)) {
-
-                System.out.println("deleteuniqueUsers" + user);
+            boolean flac = !isContains(result, user);
+            if (flac) {
+                result = addUser(result, user);
             }
         }
-        return users;
+        return result;
     }
 
-    User[] usersWithContitionalBalance(User[] users, int balance) {
+    private static User[] addUser(User[] users, User user) {
+        User[] result = Arrays.copyOf(users, users.length + 1);
+        result[result.length - 1] = user;
+        return result;
+    }
 
+    private static boolean isContains(User[] users, User user) {
+        for (User key : users) {
+            if (key.equals(user)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static User[] usersWithContitionalBalance(User[] users, int balance) { //ладно буду думать как сделать, весь мой код в топку
+
+        users = uniqueUsers(users); //?
+        User[] result = new User[0];
         for (User user : users) {
             if (user.getBalance() == balance) {
-                System.out.println(user);
+                result = addUser(result, user);
             }
         }
-        return users;
+        return result;
     }
 
-    final User[] paySalaryToUsers(User[] users) {
-
+    static User[] paySalaryToUsers(User[] users) {
+        users = uniqueUsers(users);
         for (User user : users) {
             user.setBalance(user.getBalance() + user.getSalary());
-            System.out.println(user);
-        }
+           // System.out.println(user);что то не так в методе
+                    }
         return users;
     }
 
-    final long[] getUsersId(User[] users) {
-
-        for (User user : users) {
-            System.out.print(user.getId()+ " ");
+    static long[] getUsersId(User[] users) {
+        users = uniqueUsers(users);
+        long[] result = new long[users.length];
+        for (int i = 0; i < users.length; i++) {
+            result[i] = users[i].getId();
         }
-        return new long[]{0L};
+        return result;
     }
 
-    User[] deleteEmptyUsers(User[] users) {
-
-        User userNull = new User(0L, null, null, 0, 0);
-
+    static User[] deleteEmptyUsers(User[] users) {
+        User[] result = new User[0];
         for (User user : users) {
-
-            if (user.equals(userNull)) {
-                System.out.println("deleteEmptyUsers" + user);
+            if (user != null) {
+                result = addUser(result, user);
             }
         }
-        return users;
-    }
-
-    @Override
-    public String toString() {
-        return "UserUtils{" +
-                "users=" + Arrays.toString(users) +
-                '}';
+        return result;
     }
 }
