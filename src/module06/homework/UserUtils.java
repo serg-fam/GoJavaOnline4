@@ -6,7 +6,16 @@ package module06.homework;
 public class UserUtils {
 
     User[] uniqueUsers(User[] users) {
-        return null;
+
+       for (User userq : users){
+
+           if (userq.equals(users)){
+
+
+
+           }
+       }
+        return users ;
     }
 
     User[] usersWithContitionalBalance(User[] users, int balance) {
