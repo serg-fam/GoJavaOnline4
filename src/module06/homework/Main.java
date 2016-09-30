@@ -1,8 +1,5 @@
 package module06.homework;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 import static module06.homework.ArraysUtils.*;
 
 /**
@@ -13,16 +10,30 @@ public class Main {
 
         int[] arrays = new int[]{11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
-        User user1 = new User(10L, "User1", "User1Last", 100, 200);
-        User user2 = new User(20L, "User2", "User2Last", 200, 300);
-        User user3 = new User(30L, "User3", "User3Last", 300, 400);
-        User user4 = new User(40L, "User4", "User41Last", 400, 500);
-        User user5 = new User(50L, "User5", "User51Last", 500, 600);
+        User[] users = new User[]{new User(10L, "User1", "User1Last", 100, 200),
+                new User(20L, "User2", "User2Last", 200, 200),
+                new User(30L, "User3", "User3Last", 300, 400),
+                new User(40L, "User4", "User4Last", 400, 500),
+                new User(50L, "User5", "User5Last", 500, 600),
+                new User(0L, null, null, 0, 0),
+                new User(50L, "User5", "User5Last", 500, 600)};
 
+        UserUtils userUtils = new UserUtils(users);
 
+        userUtils.uniqueUsers(users);
+        System.out.println();
+        userUtils.usersWithContitionalBalance(users, 200);
+        System.out.println();
+        userUtils.paySalaryToUsers(users);
+        System.out.println();
+        userUtils.getUsersId(users);
+        System.out.println();
+        userUtils.deleteEmptyUsers(users);
 
         reverse(arrays);
+        System.out.println();
         findEvenElements(arrays);
-        sum(arrays);
+        System.out.println();
+        System.out.println(sum(arrays));
     }
 }

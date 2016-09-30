@@ -1,7 +1,5 @@
 package module06.homework;
 
-import java.util.Arrays;
-
 /**
  * Created by Serg-fam on 25.09.2016 on 13:30.
  */
