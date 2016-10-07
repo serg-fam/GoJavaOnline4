@@ -1,7 +1,5 @@
 package module7.homework;
 
-import java.util.Currency;
-
 /**
  * Created by Serg-fam on 07.10.2016 on 16:24.
  */
