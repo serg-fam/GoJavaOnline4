@@ -1,4 +1,4 @@
-package module7.homework;
+package module07.homework;
 
 /**
  * Created by Serg-fam on 07.10.2016 on 16:43.
