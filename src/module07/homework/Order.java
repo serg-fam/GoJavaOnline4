@@ -1,5 +1,7 @@
 package module07.homework;
 
+import java.util.Comparator;
+
 /**
  * Created by Serg-fam on 07.10.2016 on 16:24.
  */
@@ -11,6 +13,8 @@ public class Order {
     private String itemName;
     private String shopIdentificator;
     private User user;
+    private Order o1;
+    private Order o2;
 
     public Order(long id, int price, Currency currency, String itemName, String shopIdentificator, User user) {
         this.id = id;
@@ -54,6 +58,33 @@ public class Order {
                 ", itemName='" + itemName + '\'' +
                 ", shopIdentificator='" + shopIdentificator + '\'' +
                 ", user=" + user +
-                '}'+ '\n';
+                '}' + '\n';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Order order = (Order) o;
+
+        if (id != order.id) return false;
+        if (price != order.price) return false;
+        if (currency != order.currency) return false;
+        if (!itemName.equals(order.itemName)) return false;
+        if (!shopIdentificator.equals(order.shopIdentificator)) return false;
+        return user.equals(order.user);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + price;
+        result = 31 * result + currency.hashCode();
+        result = 31 * result + itemName.hashCode();
+        result = 31 * result + shopIdentificator.hashCode();
+        result = 31 * result + user.hashCode();
+        return result;
     }
 }
