@@ -1,6 +1,5 @@
 package module08.homework;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,8 +8,16 @@ import java.util.List;
 public interface AbstractDAO<T> {
 
     T save(T t);
+
     void delete(T t);
+
     void deleteAll(List T);
+
     void saveAll(List T);
-    List T getList();
+
+    List<T> getList();
+
+    void get(long id);
+
+    void deleteById(long id);
 }
