@@ -1,6 +1,7 @@
 package module08.homework;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,27 +15,37 @@ public class AbstractDAOImpl<T> implements AbstractDAO<T> {
     public T save(T t) {
         db.add(t);
         return t;
-
     }
 
     @Override
-    public void delete(T t) {
-
+    public T delete(T t) {
+        db.remove(t);
+        return t;
     }
 
     @Override
-    public void deleteAll(List T) {
-
+    public void deleteAll(List<T> t) {
+        Iterator<T> iterator = t.iterator();
+        while (iterator.hasNext()) {
+            T db = iterator.next();
+            delete(db);
+        }
     }
 
     @Override
-    public void saveAll(List T) {
-
+    public void saveAll(List<T> t) {
+        Iterator<T> iterator = t.iterator();
+        while (iterator.hasNext()) {
+            T db = iterator.next();
+            save(db);
+        }
     }
 
     @Override
-    public List<T> getList() {
-        return null;
+    public void getList(List<T> t) {
+        for (int i = 0; i < t.size(); i++) {
+            t.get(i);
+        }
     }
 
     @Override

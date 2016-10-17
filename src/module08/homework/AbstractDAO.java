@@ -9,13 +9,13 @@ public interface AbstractDAO<T> {
 
     T save(T t);
 
-    void delete(T t);
+    T delete(T t);
 
-    void deleteAll(List T);
+    void deleteAll(List<T> t);
 
-    void saveAll(List T);
+    void saveAll(List<T> t);
 
-    List<T> getList();
+    void getList(List<T> t);
 
     void get(long id);
 
