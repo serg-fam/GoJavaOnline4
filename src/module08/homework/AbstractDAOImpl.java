@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class AbstractDAOImpl<T> implements AbstractDAO<T> {
 
-    private List<T> db = new ArrayList<T>();
+    private List<T> db = new ArrayList<>();
 
     @Override
     public T save(T t) {
