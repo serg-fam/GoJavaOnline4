@@ -72,17 +72,37 @@ public class Main {
                 " " + "\n" + order);
         order.add(new Order(19L, 1000, Currency.USD, "ItemName10", "Identificator10", new User(11L, "FirstName10",
                 "LastName10", "City Kiev", 1000)));
+        System.out.println(order.size());
         Set<Order> orderHasSet = new HashSet<>();
         orderHasSet.addAll(order);
+        System.out.println(orderHasSet.size());
         List<Order> list = new LinkedList<>();
         list.addAll(orderHasSet);
-        TreeSet<Order> orderTreeSet = new TreeSet<>();
-        list.addAll(orderTreeSet);
-        order.clear();
-        order.addAll(list);
+        System.out.println(list.size());
+        Set<Order> orderTreeSet = new TreeSet<>(new Comparator<Order>() {
+            @Override
+            public int compare(Order o1, Order o2) {
+                return o1.getPrice() - o2.getPrice();
+            }
+        });
+
+        orderTreeSet.addAll(orderHasSet);
+        // orderTreeSet.addAll(list);
+
+
+        //   System.out.println(orderTreeSet.size());
+        // order.clear();
+        // order.addAll(list);
         System.out.println("List elements without duplicates :======================================================" +
-                " " + "\n" + order);
-        order.removeIf(x -> (x.getPrice() < 1500));
+                " " + "\n" + orderTreeSet);
+
+        // order.removeIf(x -> (x.getPrice() < 1500));
+
+        for (Order item : list) {
+            if (item.getPrice() < 1500) {
+                order.remove(item);
+            }
+        }
         System.out.println("delete items where price less than 1500 :===============================================" +
                 "\n" + order);
         order.clear();
@@ -112,5 +132,12 @@ public class Main {
         }
         System.out.println("separate list for as many lists as many unique cities are in User : "
                 + map.size() + " " + orderHasSet.size() + "\n" + map);
+
+        System.out.println("=======================================================================================" +
+                "==================================================================================================" +
+                "===============");
+
+
+        System.out.println(orderTreeSet.size());
     }
 }

@@ -1,7 +1,5 @@
 package module07.homework;
 
-import java.util.Comparator;
-
 /**
  * Created by Serg-fam on 07.10.2016 on 16:24.
  */
@@ -13,8 +11,7 @@ public class Order {
     private String itemName;
     private String shopIdentificator;
     private User user;
-    private Order o1;
-    private Order o2;
+
 
     public Order(long id, int price, Currency currency, String itemName, String shopIdentificator, User user) {
         this.id = id;
