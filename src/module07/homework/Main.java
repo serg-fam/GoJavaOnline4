@@ -35,28 +35,86 @@ public class Main {
 
         System.out.println(order);
 
-        order.sort(new Comparator<Order>() {
-            @Override
-            public int compare(Order o1, Order o2) {
-                return o2.getPrice() - o1.getPrice();
-            }
-        });
+        order.sort(getComparatorPrice());
         System.out.println("sort list by Order price in decrease order : " + "\n" + order);
 
-        order.sort(new Comparator<Order>() {
-            @Override
-            public int compare(Order o1, Order o2) {
-
-                if (o1.getPrice() == o2.getPrice()) //return o1.getUser().getCity().compareTo(o2.getUser().getCity());
-                    //o2.getUser().getCity().length() - o1.getUser().getCity().length();
-                    return o1.getPrice() - o2.getPrice();
-                return o1.getUser().getCity().compareTo(o2.getUser().getCity());
-            }
-        });
+        order.sort(getComparatorUser());
         System.out.println("sort list by Order price in increase order AND User city :=================================" +
                 "" + "\n" + order);
 
-        order.sort(new Comparator<Order>() {
+        order.sort(getComparatorItemName());
+        System.out.println("sort list by Order itemName AND ShopIdentificator AND User city :==========================" +
+                " " + "\n" + order);
+        order.add(new Order(19L, 1000, Currency.USD, "ItemName10", "Identificator10", new User(11L, "FirstName10",
+                "LastName10", "City Kiev", 1000)));
+
+        System.out.println(order.size());
+
+        Set<Order> orderTreeSet = new TreeSet<>(getComparator());
+        orderTreeSet.addAll(order);
+        System.out.println("List elements without duplicates :======================================================" +
+                " " + "\n" + orderTreeSet);
+        System.out.println(order.size());
+
+        List<Order> list = new LinkedList<>(order);
+        System.out.println(list.size());
+
+        // order.removeIf(x -> (x.getPrice() < 1500));
+
+    /* for (Order item : list) {
+            if (item.getPrice() < 1500) {
+                order.remove(item);
+            }
+        }*/
+        for (int i = 0; i < order.size(); i++) {
+            if (order.get(i).getPrice() < 1500) {
+                order.remove(i);
+                --i;
+            }
+        }
+        System.out.println("delete items where price less than 1500 :===============================================" +
+                "\n" + order);
+
+        order.clear();
+        order.addAll(list);
+
+        order.replaceAll(getOperatorUSD());
+        System.out.println("separate list orders in USD" + "\n" + order);
+        order.clear();
+        order.addAll(list);
+        order.replaceAll(getOperatorUAH());
+        System.out.println("separate list orders in UAH" + "\n" + order);
+        order.clear();
+        order.addAll(list);
+
+        Map<String, Order> map = new HashMap<>();
+        for (Order item : order) {
+            map.put(item.getUser().getCity(), item);
+        }
+        System.out.println("separate list for as many lists as many unique cities are in User : "
+                + map.size() + " " + order.size() + "\n" + map);
+
+        System.out.println("=======================================================================================" +
+                "==================================================================================================" +
+                "===============");
+
+        System.out.println(orderTreeSet.size());
+
+        System.out.println(orderTreeSet);
+
+        Iterator<Order> iterator = orderTreeSet.iterator();
+        while (iterator.hasNext()) {
+            Order item = iterator.next();
+            if (item.getCurrency() == Currency.USD)
+                iterator.remove();
+        }
+        System.out.println("Delete orders where currency is USD using Iterator: " + "\n" + orderTreeSet);
+
+    }
+
+
+    private static Comparator<Order> getComparatorItemName() {
+        return new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
                 if (o1.getItemName().length() < o2.getItemName().length()) {
@@ -67,77 +125,58 @@ public class Main {
                 }
                 return o1.getUser().getCity().compareTo(o2.getUser().getCity());
             }
-        });
-        System.out.println("sort list by Order itemName AND ShopIdentificator AND User city :==========================" +
-                " " + "\n" + order);
-        order.add(new Order(19L, 1000, Currency.USD, "ItemName10", "Identificator10", new User(11L, "FirstName10",
-                "LastName10", "City Kiev", 1000)));
-        System.out.println(order.size());
-        Set<Order> orderHasSet = new HashSet<>();
-        orderHasSet.addAll(order);
-        System.out.println(orderHasSet.size());
-        List<Order> list = new LinkedList<>();
-        list.addAll(orderHasSet);
-        System.out.println(list.size());
-        Set<Order> orderTreeSet = new TreeSet<>(new Comparator<Order>() {
+        };
+    }
+
+    private static Comparator<Order> getComparatorUser() {
+        return new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
-                return o1.getPrice() - o2.getPrice();
+
+                if (o1.getPrice() == o2.getPrice()) //return o1.getUser().getCity().compareTo(o2.getUser().getCity());
+                    //o2.getUser().getCity().length() - o1.getUser().getCity().length();
+                    return o1.getPrice() - o2.getPrice();
+                return o1.getUser().getCity().compareTo(o2.getUser().getCity());
             }
-        });
+        };
+    }
 
-        orderTreeSet.addAll(orderHasSet);
-        // orderTreeSet.addAll(list);
-
-
-        //   System.out.println(orderTreeSet.size());
-        // order.clear();
-        // order.addAll(list);
-        System.out.println("List elements without duplicates :======================================================" +
-                " " + "\n" + orderTreeSet);
-
-        // order.removeIf(x -> (x.getPrice() < 1500));
-
-        for (Order item : list) {
-            if (item.getPrice() < 1500) {
-                order.remove(item);
-            }
-        }
-        System.out.println("delete items where price less than 1500 :===============================================" +
-                "\n" + order);
-        order.clear();
-        order.addAll(list);
-
-        order.replaceAll(new UnaryOperator<Order>() {
+    private static Comparator<Order> getComparatorPrice() {
+        return new Comparator<Order>() {
             @Override
-            public Order apply(Order order) {
-                if (order.getCurrency() == Currency.USD) return order;
-                return null;
+            public int compare(Order o1, Order o2) {
+                return o2.getPrice() - o1.getPrice();
             }
-        });
-        System.out.println("separate list orders in USD" + "\n" + order);
-        order.clear();
-        order.addAll(orderHasSet);
-        order.replaceAll(new UnaryOperator<Order>() {
+        };
+    }
+
+    private static UnaryOperator<Order> getOperatorUAH() {
+        return new UnaryOperator<Order>() {
             @Override
             public Order apply(Order order) {
                 if (order.getCurrency() == Currency.UAH) return order;
                 return null;
             }
-        });
-        System.out.println("separate list orders in UAH" + "\n" + order);
-        Map<String, Order> map = new HashMap<>();
-        for (Order item : orderHasSet) {
-            map.put(item.getUser().getCity(), item);
-        }
-        System.out.println("separate list for as many lists as many unique cities are in User : "
-                + map.size() + " " + orderHasSet.size() + "\n" + map);
+        };
+    }
 
-        System.out.println("=======================================================================================" +
-                "==================================================================================================" +
-                "===============");
+    private static UnaryOperator<Order> getOperatorUSD() {
+        return new UnaryOperator<Order>() {
+            @Override
+            public Order apply(Order order) {
+                if (order.getCurrency() == Currency.USD)
+                    return order;
+                return null;
+            }
+        };
+    }
 
-
-        System.out.println(orderTreeSet.size());
+    private static Comparator<Order> getComparator() {
+        return new Comparator<Order>() {
+            @Override
+            public int compare(Order o1, Order o2) {
+                return o1.getUser().getFirstName().compareTo(o2.getUser().getFirstName());
+            }
+        };
     }
 }
