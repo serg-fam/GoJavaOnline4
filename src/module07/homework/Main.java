@@ -9,7 +9,6 @@ import java.util.function.UnaryOperator;
 public class Main {
     public static void main(String[] args) {
 
-
         List<Order> order = new LinkedList<>();
 
         order.add(new Order(10L, 1200, Currency.UAH, "ItemName1", "Identificator1", new User(10L, "FirstName1",
@@ -31,7 +30,7 @@ public class Main {
         order.add(new Order(18L, 900, Currency.UAH, "ItemName9", "Identificator9", new User(90L, "FirstName9",
                 "LastName9", "City9", 900)));
         order.add(new Order(19L, 1000, Currency.USD, "ItemName10", "Identificator10", new User(11L, "FirstName10",
-                "LastName10", "City Kiev", 1000)));
+                "LastName09", "City Kiev", 1000)));
 
         System.out.println(order);
 
@@ -46,7 +45,7 @@ public class Main {
         System.out.println("sort list by Order itemName AND ShopIdentificator AND User city :==========================" +
                 " " + "\n" + order);
         order.add(new Order(19L, 1000, Currency.USD, "ItemName10", "Identificator10", new User(11L, "FirstName10",
-                "LastName10", "City Kiev", 1000)));
+                "LastName09", "City Kiev", 1000)));
 
         System.out.println(order.size());
 
@@ -102,6 +101,28 @@ public class Main {
 
         System.out.println(orderTreeSet);
 
+
+        Iterator<Order> iteratorLastName = orderTreeSet.iterator();
+
+        while (iteratorLastName.hasNext()) {
+            Order item = iteratorLastName.next();
+            if (item.getUser().getLastName().contains("LastName1")) {
+                System.out.println("Check if set contain Order where User’s LastName1 is TRUE" + "\n" + item);
+            }
+        }
+
+        System.out.println(orderTreeSet.size());
+
+        Iterator<Order> iteratorLargesPrice = orderTreeSet.iterator();
+
+        while (iteratorLargesPrice.hasNext()) {
+            Order item = iteratorLargesPrice.next();
+            if (iteratorLargesPrice.next().getPrice() < item.getPrice()) {
+                System.out.println("Print Order with largest price using only one " +
+                        "set method : " + "\n" + item.getPrice());
+            }
+        }
+
         Iterator<Order> iterator = orderTreeSet.iterator();
         while (iterator.hasNext()) {
             Order item = iterator.next();
@@ -110,8 +131,9 @@ public class Main {
         }
         System.out.println("Delete orders where currency is USD using Iterator: " + "\n" + orderTreeSet);
 
-    }
 
+
+    }
 
     private static Comparator<Order> getComparatorItemName() {
         return new Comparator<Order>() {
@@ -133,7 +155,8 @@ public class Main {
             @Override
             public int compare(Order o1, Order o2) {
 
-                if (o1.getPrice() == o2.getPrice()) //return o1.getUser().getCity().compareTo(o2.getUser().getCity());
+                if (o1.getPrice() == o2.getPrice())
+                    //return o1.getUser().getCity().compareTo(o2.getUser().getCity());
                     //o2.getUser().getCity().length() - o1.getUser().getCity().length();
                     return o1.getPrice() - o2.getPrice();
                 return o1.getUser().getCity().compareTo(o2.getUser().getCity());
@@ -154,7 +177,8 @@ public class Main {
         return new UnaryOperator<Order>() {
             @Override
             public Order apply(Order order) {
-                if (order.getCurrency() == Currency.UAH) return order;
+                if (order.getCurrency() == Currency.UAH)
+                    return order;
                 return null;
             }
         };
@@ -179,4 +203,14 @@ public class Main {
             }
         };
     }
+ /*   private static UnaryOperator<Order> getOperatorLargesPrice() {
+        return new UnaryOperator<Order>() {
+            @Override
+            public Order apply(Order order) {
+                if (order.getPrice()<order.getPrice())
+                    return order;
+                return null;
+            }
+        };
+    }*/
 }
