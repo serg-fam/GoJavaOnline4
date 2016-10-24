@@ -1,9 +1,11 @@
-package module07.homework;
+package module07.homework.task01;
+
+import module01.homework.SecondClass;
 
 /**
  * Created by Serg-fam on 07.10.2016 on 16:24.
  */
-public class Order {
+public class Order implements Comparable<Order> {
 
     private long id;
     private int price;
@@ -83,5 +85,33 @@ public class Order {
         result = 31 * result + shopIdentificator.hashCode();
         result = 31 * result + user.hashCode();
         return result;
+    }
+
+    @Override
+    public int compareTo(Order order) {
+/*
+        int result = Long.compare(id, order.id);
+        if (result != 0) {
+            return result;
+        }
+        result = Integer.compare(price, order.price);
+        if (result != 0) {
+            return result;
+        }
+        result = currency.compareTo(order.currency);
+        if (result != 0) {
+            return result;
+        }
+        result = itemName.compareTo(order.itemName);
+        if (result != 0) {
+            return result;
+        }
+        result = shopIdentificator.compareTo(order.shopIdentificator);
+        if (result != 0) {
+            return result;
+        }
+        return user.compareTo(order.user);
+*/
+        return Long.compare(id, order.id);
     }
 }
