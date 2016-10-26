@@ -5,45 +5,46 @@ package module04.homework;
  */
 public class BankSystemImpl implements BankSystem {
 
-
     @Override
     public void withdrawOfUser(User user, int amount) {
         Bank userBank = user.getBank();
-        double commission = userBank.getCommission(amount) / 100;
-        if (userBank.getLimitOfWithdrawal() >= amount + amount * commission) {
-            double newBalance = user.getBalance() - amount - amount * commission;
-            user.setBalance(newBalance);
+        double amountWithCommission = getAmountWithCommision(amount, userBank);
+        if (user.getBalance() < amountWithCommission) {
+            System.out.println();
+            return;
         }
+        if (userBank.getLimitOfWithdrawal() < amountWithCommission) {
+            System.out.println();
+            return;
+        }
+        user.setBalance(user.getBalance() + amountWithCommission);
+    }
+
+    private int getAmountWithCommision(int amount, Bank userBank) {
+        return amount + getSumCommision(amount, userBank);
+    }
+
+    private int getSumCommision(int amount, Bank userBank) {
+        return amount * userBank.getCommission(amount) / 100;
     }
 
     @Override
     public void fundUser(User user, int amount) {
         Bank userBank = user.getBank();
-        double commission = userBank.getCommission(amount) / 100;
-        if (userBank.getLimitOfWithdrawal() >= 0) {
-            double newBalance = user.getBalance() + amount - amount * commission;
-            user.setBalance(newBalance);
-        } else {
-            System.out.println("No do nothing");
+        if (userBank.getLimitOfFunding() < getAmountWithCommision(amount, userBank) + user.getBalance()) {
+            System.out.println();
+            return;
         }
-    }
-
-    @Override
-    public void transferMoney(User fromUser, User toUser, int amount) {
-        Bank userBankFrom = fromUser.getBank();
-        double commission = userBankFrom.getCommission(amount) / 100;
-        double transferFromUser = fromUser.getBalance() - amount - amount * commission;
-        double transferToUser = toUser.getBalance() + amount - amount * commission;
-        fromUser.setBalance(transferFromUser);
-        toUser.setBalance(transferToUser);
-    }
-
-    @Override
-    public void paySalary(User user) {
-        Bank userBank = user.getBank();
-        double commission = userBank.getCommission(user.getSalary() / 100);
-        double newBalance = user.getBalance() + user.getSalary() - commission;
+        double newBalance = user.getBalance() + amount - getSumCommision(amount, userBank);
         user.setBalance(newBalance);
     }
-
+    @Override
+    public void transferMoney(User fromUser, User toUser, int amount) {
+        withdrawOfUser(fromUser, amount);
+        fundUser(toUser, amount);
+    }
+    @Override
+    public void paySalary(User user) {
+        fundUser(user, user.getSalary());
+    }
 }

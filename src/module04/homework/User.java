@@ -7,8 +7,6 @@ public class User {
 
     private long id;
     private String name;
-
-
     private double balance;
     private int monthsOfEmployment;
     private String companyName;
@@ -90,7 +88,7 @@ public class User {
                 ", monthsOfEmployment=" + monthsOfEmployment +
                 ", companyName='" + companyName + '\'' +
                 ", salary=" + salary +
-                ", bank=" + bank+
+                ", bank=" + bank +
                 '}';
     }
 

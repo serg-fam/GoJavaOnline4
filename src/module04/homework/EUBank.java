@@ -11,39 +11,50 @@ public class EUBank extends Bank {
 
     @Override
     int getLimitOfWithdrawal() {
-        int limit;
-        if (getCurrency() == Currency.USD) limit = 2000;
-        else limit = 2200;
-        return limit;
+        if (getCurrency() == Currency.USD) {
+            return 2000;
+        } else if (getCurrency() == Currency.EUR) {
+            return 2200;
+        }
+        return 0;
     }
 
     @Override
     int getLimitOfFunding() {
-        int limit;
-        if (getCurrency() == Currency.EUR) limit = 20000;
-        else limit = 10000;
-        return limit;
+        //  int limit;
+        if (getCurrency() == Currency.EUR) {
+            return 20000;
+        } else if (getCurrency() == Currency.USD) {
+            return 10000;
+        }
+        return 0;
     }
 
     @Override
     int getMonthlyRate() {
-        int rate;
-        if (getCurrency() == Currency.USD) rate = 0;
-        else rate = 1;
-        return rate;
+        if (getCurrency() == Currency.USD) {
+            return 0;
+        } else if (getCurrency() == Currency.EUR) {
+            return 1;
+        }
+        return 0;
     }
 
     @Override
     int getCommission(int amount) {
-        int commission = 0;
-        if (getCurrency() == Currency.USD) {
-            if (amount < 1000) commission = 5;
-            else commission = 7;
-        } else {
-            if (amount < 1000) commission = 2;
-            else commission = 4;
+        if (getCurrency() == Currency.USD && amount <= 1000) {
+            return 5;
+        } else if (getCurrency() == Currency.USD && amount > 1000) {
+            return 7;
+        } else if (getCurrency() == Currency.EUR && amount <= 1000) {
+            return 2;
+        } else if (getCurrency() == Currency.EUR && amount > 1000) {
+            return 4;
         }
-        return commission;
+        if (amount <= 1000) {
+            return 10;
+        }
+        return 0;
     }
 
     @Override

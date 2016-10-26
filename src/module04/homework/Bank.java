@@ -13,8 +13,6 @@ public abstract class Bank {
     private long rating;
     private long totalCapital;
 
-    final static int noLimit = Integer.MAX_VALUE;
-
     public Bank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         this.id = id;
         this.bankCountry = bankCountry;
