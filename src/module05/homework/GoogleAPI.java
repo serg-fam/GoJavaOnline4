@@ -13,12 +13,11 @@ public class GoogleAPI implements API {
     Room[] rooms;
 
     public GoogleAPI() {
-
-        Room room1 = new Room(100, 100, 1, new Date(10 / 10 / 2016), "Kiev", "GoogleInn1");
-        Room room2 = new Room(101, 200, 2, new Date(11 / 10 / 2016), "Kiev", "GoogleInn2");
-        Room room3 = new Room(102, 300, 3, new Date(12 / 10 / 2016), "Kiev", "GoogleInn3");
-        Room room4 = new Room(103, 400, 4, new Date(13 / 10 / 2016), "Kiev", "GoogleInn4");
-        Room room5 = new Room(104, 500, 5, new Date(14 / 10 / 2016), "Kiev", "GoogleInn5");
+        Room room1 = new Room(100, 200, 2, new Date(10 / 10 / 2016), "Kiev", "GoogleInn");
+        Room room2 = new Room(101, 200, 2, new Date(11 / 10 / 2016), "Kiev", "GoogleInn");
+        Room room3 = new Room(102, 200, 3, new Date(12 / 10 / 2016), "Kiev", "GoogleInn");
+        Room room4 = new Room(103, 400, 4, new Date(13 / 10 / 2016), "Kiev", "GoogleInn2");
+        Room room5 = new Room(104, 500, 5, new Date(14 / 10 / 2016), "Kiev", "All");
 
         this.rooms = new Room[]{room1, room2, room3, room4, room5};
     }
@@ -32,6 +31,11 @@ public class GoogleAPI implements API {
                 result.add(room);
             }
         }
-        return (Room[]) result.toArray(new Room[result.size()]);
+        return result.toArray(new Room[result.size()]);
+    }
+
+    @Override
+    public Room[] getAll() {
+        return rooms;
     }
 }

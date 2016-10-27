@@ -1,10 +1,6 @@
 package module05.homework;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
-
 /**
  * Created by Serg-fam on 14.09.2016 on 15:19.
  */
@@ -16,42 +12,34 @@ public class Controller {
 
         this.apis = new API[]{new BookingComAPI(), new GoogleAPI(), new TripAdvisorAPI()};
     }
-
     Room[] requestRooms(int price, int persons, String city, String hotel) {
-
-        List<API> result = new ArrayList<>();
-
         Room reqRoom = new Room(100L, price, persons, Calendar.getInstance().getTime(), city, hotel);
-
+        Room[] result = new Room[0];
+        Room[] apiRooms;
         for (API api : apis) {
-          //  if (api.equals(reqRoom)) {
-           //     result.add(api);
-           // }
-            System.out.println(api);
-        }
-        return (Room[]) result.toArray(new Room[result.size()]);
+            apiRooms = api.getAll();
+            for (Room room : apiRooms) {
+                if (room.equals(reqRoom) && hotel.equals(room.getHotelName())) {
+                    result = Arrays.copyOf(result, result.length + 1);
+                    result[result.length - 1] = room;
+                }
+            }
+        }// да
+        return result;
     }
-
-
-    Room save(Room room) {
-        DAOHardImpl daoHard = new DAOHardImpl();
-        return daoHard.save(room);
-    }
-
 
     Room[] check(API api1, API api2) {
-
-     //   Room[] res1 = api1.findRooms();
-      //  Room[] res2 = api2.findRooms(price, persons, city, hotel);
-
-        //api1.getAll();
-        //api2.getAll();
-
-
-        //logic (!!!) KEY moment
-
-        return null;
-
+        Room[] result = new Room[0];
+        Room[] api1All = api1.getAll();
+        Room[] api2All = api2.getAll();
+        for (Room api1Room : api1All) {
+            for (Room api2Room : api2All) {
+                if (api1Room.equals(api2Room)) {
+                    result = Arrays.copyOf(result, result.length + 1);
+                    result[result.length - 1] = api1Room;
+                }
+            }
+        }
+        return result;
     }
-
 }

@@ -1,4 +1,5 @@
 package module05.homework;
+import java.util.Date;
 
 /**
  * Created by Serg-fam on 14.09.2016 on 15:22.
@@ -6,27 +7,27 @@ package module05.homework;
 public class DAOOImpl implements DAO {
     @Override
     public Room save(Room room) {
-
-        return null;
+        System.out.println("SAVE ");
+        return room;
     }
 
     @Override
     public boolean delete(Room room) {
-        return false;
+        System.out.println(" DELETE");
+        return true;
     }
 
     @Override
     public Room update(Room room) {
-        return null;
+        System.out.println("UPDATE");
+        return room;
     }
 
     @Override
     public Room findById(long id) {
-        //Room room = new Room(id, 0, null, null);
-        //System.out.println("" + );
-        //return
-
-        return null;
+        Room room = new Room(104, 500, 5, new Date(14 / 10 / 2016), "Kiev", "All");
+        System.out.println("findById");
+        return room;
     }
 
     @Override
