@@ -12,11 +12,7 @@ public class Main {
         API bookingComAPI = new BookingComAPI();
         API tripAdvisorAPI = new TripAdvisorAPI();
         API googleAPI = new GoogleAPI();
-        List<API> apis = new ArrayList<>();
-        apis.add(bookingComAPI);
-        apis.add(googleAPI);
-        apis.add(tripAdvisorAPI);
-        Controller controller = new Controller(apis);
+        Controller controller = new Controller();
         List<Room> rooms;
         System.out.println();
         rooms = controller.check(bookingComAPI, googleAPI);

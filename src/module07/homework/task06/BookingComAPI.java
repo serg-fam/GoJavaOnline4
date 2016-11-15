@@ -9,10 +9,10 @@ import java.util.List;
  */
 public class BookingComAPI implements API {
 
-    List<Room> rooms;
+    private List<Room> rooms;
 
-    public BookingComAPI() {
-        rooms = new ArrayList<Room>();
+    BookingComAPI() {
+        rooms = new ArrayList<>();
         rooms.add(new Room(100, 100, 1, new Date(10 / 9 / 2016), "Kiev", "BookingInn1"));
         rooms.add(new Room(101, 100, 1, new Date(10 / 10 / 2016), "Kiev", "BookingInn1"));
         rooms.add(new Room(102, 100, 1, new Date(12 / 10 / 2016), "Kiev", "BookingInn1"));

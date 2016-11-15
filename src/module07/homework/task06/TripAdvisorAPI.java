@@ -13,7 +13,7 @@ public class TripAdvisorAPI implements API {
     List<Room> rooms;
 
     public TripAdvisorAPI() {
-        rooms = new ArrayList<Room>();
+        rooms = new ArrayList<>();
         rooms.add(new Room(100, 100, 1, new Date(20 / 9 / 2016), "Kiev", "TripInn1"));
         rooms.add(new Room(101, 200, 2, new Date(21 / 9 / 2016), "Kiev", "TripInn2"));
         rooms.add(new Room(102, 300, 3, new Date(12 / 10 / 2016), "Kiev", "TripInn3"));
@@ -23,7 +23,7 @@ public class TripAdvisorAPI implements API {
 
     @Override
     public List<Room> findRooms(int price, int persons, String city, String hotel) {
-        List<Room> result = new ArrayList<Room>();
+        List<Room> result = new ArrayList<>();
         Room fiendRoom = new Room(100L, price, persons, Calendar.getInstance().getTime(), city, hotel);
         for (Room room : rooms) {
             if (room.equals(fiendRoom)) {
