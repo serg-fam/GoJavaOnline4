@@ -1,4 +1,4 @@
-INSERT INTO developers VALUES (2, 'Serg', 'Fam', 25, 10000),
+INSERT INTO developers VALUES (1, 'Serg', 'Fam', 25, 10000),
   (2, 'Oleg', 'Orlov', 25, 100000),
   (3, 'Ivan', 'Grozniy', 150, 94324),
   (4, 'Pablo', 'Piccaso', 63, 9999999),
